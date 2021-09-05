@@ -12,6 +12,8 @@ def chunker(seq, size):
  
 def process_input_playfair(input):
     input = "".join([c.upper() for c in input if c in string.ascii_letters])
+    input = re.sub(r"[J]", 'I', input)
+
     return(input)
  
 def prepare_input(dirty):
@@ -85,5 +87,5 @@ def playfair_decrypt(ciphertext, key):
     decrypted = re.sub(r"[X]", '', decrypted)
     return decrypted
 
-print(playfair_encrypt("akusukaaku", "kumochan"))
-print(playfair_decrypt("HUOQMUNWHUMW", "kumochan"))
+print(playfair_encrypt("anjing banget ni tugas kontol", "kumochan"))
+print(playfair_decrypt("NBGYGBINNBIFRDLSMFBQUCDRCI", "kumochan"))
