@@ -10,7 +10,7 @@ Algoritma yang diujikan berupa:
 - Extended Vigenere Cipher (256 karakter ASCII)
 - Playfair Cipher (26 huruf alfabet)
 - Affine Cipher (26 huruf alfabet)
-- Hill Cipher
+- Bonus: Hill Cipher
 
 ## Prerequisite
 Module yang dibutuhkan dalam program ini:
@@ -32,7 +32,7 @@ python vigenere_extended.py
 Sebelum menjalankan command tersebut: 
 - Unblock terlebih dahulu `line 46-61`
 - Mengganti value dari `flag` dengan `True` untuk enkripsi dan `False` untuk dekripsi
-- Mengganti file yang diingin dienkripsi atau dekripsi di `line 46` dengan absolute atau relatif path dari file tersebut
+- Mengganti file yang ingin dienkripsi atau dekripsi di `line 46` dengan absolute atau relatif path dari file tersebut
 
 ## Tugas ini dikerjakan oleh
 - Fritz Gerald Tjie - 13518065
