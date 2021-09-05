@@ -1,5 +1,4 @@
 import string
-import itertools
 
 def process_input_vigenere(input):
     input = "".join([c.lower() for c in input if c in string.ascii_letters])
@@ -62,14 +61,3 @@ def vigenere_decrypt(ciphertext, key):
         else:
             decrypted = decrypted + letter
     return(decrypted)
-
-def print5char(str):
-	start = 0
-	while start+5 < len(str):
-		print(str[start:start+5],end=" ")
-		start+=5
-	print(str[start:len(str)])
-
-# Testing
-print5char(vigenere_encrypt("aku suka kucing", "hello man"))
-print(vigenere_decrypt("hoflb mknro vvoma aqmyr", "hello man"))

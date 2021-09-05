@@ -31,8 +31,4 @@ def affine_decrypt(ciphertext, key_m, key_b):
 	ciphertext= process_input_affine(ciphertext)
 	decrypted = ''.join([ chr((( modular_inverse(key_m, 26)*(ord(c) - ord('A') - key_b))
 					% 26) + ord('A')) for c in ciphertext ])
-	return decrypted;
-
-print(affine_encrypt("aku suka makan", 17, 2))
-
-print(affine_decrypt("CQEWEQCYCQCP", 17, 2))
+	return decrypted

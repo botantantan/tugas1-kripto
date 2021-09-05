@@ -32,7 +32,7 @@ def generate_full_vigenere_matrix():
 
 full_vigenere_matrix = generate_full_vigenere_matrix()
 
-def vigenere_full_encrypt( plaintext, key, full_vigenere_matrix):
+def vigenere_full_encrypt(plaintext, key, full_vigenere_matrix):
     plaintext = process_input_vigenere(plaintext)
     key = process_input_vigenere(key)
     key = process_key_vigenere(key, len(plaintext))
@@ -44,7 +44,7 @@ def vigenere_full_encrypt( plaintext, key, full_vigenere_matrix):
         ciphertext += full_vigenere_matrix[row][col]
     return ciphertext
 
-def vigenere_full_decrypt( ciphertext, key, full_vigenere_matrix):
+def vigenere_full_decrypt(ciphertext, key, full_vigenere_matrix):
     ciphertext = regex.sub('', ciphertext.upper())
     key = regex.sub('', key.lower())
     plaintext = ''

@@ -68,6 +68,7 @@ def playfair_encrypt(plaintext, key):
  
 def playfair_decrypt(ciphertext, key):
     table = generate_table(key)
+    ciphertext = prepare_input(ciphertext)
     decrypted = ""
  
     for char1, char2 in chunker(ciphertext, 2):
@@ -86,6 +87,3 @@ def playfair_decrypt(ciphertext, key):
 
     decrypted = re.sub(r"[X]", '', decrypted)
     return decrypted
-
-print(playfair_encrypt("anjing banget ni tugas kontol", "kumochan"))
-print(playfair_decrypt("NBGYGBINNBIFRDLSMFBQUCDRCI", "kumochan"))

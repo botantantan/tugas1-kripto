@@ -1,4 +1,3 @@
-
 def padd_key(key, seq_input):
 
     pad_len = len(seq_input) - len(key)
