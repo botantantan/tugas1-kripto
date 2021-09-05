@@ -20,17 +20,19 @@ def process_input_affine(input):
     input = "".join([c.upper() for c in input if c in string.ascii_letters])
     return(input)
  
-def affine_encrypt(plaintext, key):
+def affine_encrypt(plaintext, key_m, key_b):
 	plaintext= process_input_affine(plaintext)
-	encrypted = ''.join([ chr((( key[0]*(ord(t) - ord('A')) + key[1] ) % 26)
+	encrypted = ''.join([ chr((( key_m*(ord(t) - ord('A')) + key_b ) % 26)
 				+ ord('A')) for t in plaintext ])
 	return encrypted
 
 
-def affine_decrypt(ciphertext, key):
+def affine_decrypt(ciphertext, key_m, key_b):
 	ciphertext= process_input_affine(ciphertext)
-	decrypted = ''.join([ chr((( modular_inverse(key[0], 26)*(ord(c) - ord('A') - key[1]))
+	decrypted = ''.join([ chr((( modular_inverse(key_m, 26)*(ord(c) - ord('A') - key_b))
 					% 26) + ord('A')) for c in ciphertext ])
 	return decrypted;
 
+print(affine_encrypt("aku suka makan", 17, 2))
 
+print(affine_decrypt("CQEWEQCYCQCP", 17, 2))
