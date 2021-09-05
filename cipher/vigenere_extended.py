@@ -2,7 +2,6 @@ from os import write
 
 
 def padd_key(key, seq_input):
-
     pad_len = len(seq_input) - len(key)
     j = 0  #index of key
     output = [c for c in key]
@@ -16,15 +15,12 @@ def padd_key(key, seq_input):
 def process_key_vigenere_extended(key, string_length):
     expanded_key = key
     expanded_key_length = len(expanded_key)
-
     while expanded_key_length < string_length:
         expanded_key = expanded_key + key
         expanded_key_length = len(expanded_key)
-
     return(expanded_key)
     
 def vigenere_extended_encrypt(plaintext, key):
-
     output = []
     key = process_key_vigenere_extended(key, len(plaintext))
     padded_key = padd_key(key, plaintext)

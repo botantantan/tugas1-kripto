@@ -7,11 +7,9 @@ def process_input_vigenere(input):
 def process_key_vigenere(key, string_length):
     expanded_key = key
     expanded_key_length = len(expanded_key)
-
     while expanded_key_length < string_length:
         expanded_key = expanded_key + key
         expanded_key_length = len(expanded_key)
-
     return(expanded_key)
 
 def find_key_position(alphabet, letter, key_position, expanded_key):
@@ -24,13 +22,10 @@ def find_key_position(alphabet, letter, key_position, expanded_key):
 def vigenere_encrypt(plaintext, key):
     alphabet = "abcdefghijklmnopqrstuvwxyz"
     encrypted = ""
-
     plaintext=process_input_vigenere(plaintext)
-
     key= process_input_vigenere(key)
     expanded_key=process_key_vigenere(key, len(plaintext))
     key_position = 0
-
     for letter in plaintext:
         if letter in alphabet:
             position, key_position, key_character_position=find_key_position(alphabet, letter, key_position, expanded_key)
@@ -39,19 +34,15 @@ def vigenere_encrypt(plaintext, key):
             encrypted = encrypted + new_character
         else:
             encrypted = encrypted + letter
-
     return(encrypted)
 
 def vigenere_decrypt(ciphertext, key):
     alphabet = "abcdefghijklmnopqrstuvwxyz"
     decrypted = ""
-
     ciphertext = process_input_vigenere(ciphertext)
-
     key= process_input_vigenere(key)
     expanded_key=process_key_vigenere(key, len(ciphertext))
     key_position = 0
-
     for letter in ciphertext:
         if letter in alphabet:
             position, key_position, key_character_position = find_key_position(alphabet, letter, key_position, expanded_key)

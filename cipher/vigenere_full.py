@@ -6,7 +6,7 @@ alphabet_uppercase = list(string.ascii_uppercase)
 regex = re.compile('[^a-zA-Z]')
 
 def process_input_vigenere(input):
-    input = "".join([c.lower() for c in input if c in string.ascii_letters])
+    input = "".join([c.upper() for c in input if c in string.ascii_letters])
     return(input)
 
 def process_key_vigenere(key, string_length):
@@ -39,19 +39,23 @@ def vigenere_full_encrypt(plaintext, key, full_vigenere_matrix):
     ciphertext = ''
     for i in range(len(plaintext)):
         idx_key = i % len(key)
-        col = string.ascii_lowercase.index(plaintext[i])
-        row = string.ascii_lowercase.index(key[idx_key])        
+        col = string.ascii_uppercase.index(plaintext[i])
+        row = string.ascii_uppercase.index(key[idx_key])        
         ciphertext += full_vigenere_matrix[row][col]
     return ciphertext
 
 def vigenere_full_decrypt(ciphertext, key, full_vigenere_matrix):
     ciphertext = regex.sub('', ciphertext.upper())
-    key = regex.sub('', key.lower())
+    key = regex.sub('', key.upper())
     plaintext = ''
     for i in range(len(ciphertext)):
         idx_key = i % len(key)
-        row = string.ascii_lowercase.index(key[idx_key])
+        row = string.ascii_uppercase.index(key[idx_key])
         vigenere_row = full_vigenere_matrix[row]
         letter_idx = vigenere_row.index(ciphertext[i])      
-        plaintext += string.ascii_lowercase[letter_idx]
+        plaintext += string.ascii_uppercase[letter_idx]
     return plaintext
+
+a=(vigenere_full_encrypt("aku suka ayam", "komochan", full_vigenere_matrix))
+print(a)
+print(vigenere_full_decrypt(a, "komochan", full_vigenere_matrix))
