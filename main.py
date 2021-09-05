@@ -212,8 +212,6 @@ importBtn = tk.Button(botFrame, text="Import File", command=lambda:importFile())
 importBtn.grid(row=2, column=0, sticky="w")
 exportBtn = tk.Button(botFrame, text="Export File", command=lambda:exportFile())
 exportBtn.grid(row=3, column=0, sticky="w")
-# importByteBtn = tk.Button(botFrame, text="Import File as Byte", command=lambda:importFileByte(filepath))
-# importByteBtn.grid(row=2, column=1, sticky="w")
 
 # cipher choice
 algoRadVar = tk.IntVar()
