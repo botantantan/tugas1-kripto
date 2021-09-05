@@ -45,17 +45,14 @@ def vigenere_full_encrypt(plaintext, key, full_vigenere_matrix):
     return ciphertext
 
 def vigenere_full_decrypt(ciphertext, key, full_vigenere_matrix):
-    ciphertext = regex.sub('', ciphertext.upper())
-    key = regex.sub('', key.upper())
-    plaintext = ''
+    ciphertext = process_input_vigenere(ciphertext)
+    key = process_input_vigenere(key)
+    key = process_key_vigenere(key, len(ciphertext))
+    decrypted = ''
     for i in range(len(ciphertext)):
         idx_key = i % len(key)
         row = string.ascii_uppercase.index(key[idx_key])
         vigenere_row = full_vigenere_matrix[row]
         letter_idx = vigenere_row.index(ciphertext[i])      
-        plaintext += string.ascii_uppercase[letter_idx]
-    return plaintext
-
-a=(vigenere_full_encrypt("aku suka ayam", "komochan", full_vigenere_matrix))
-print(a)
-print(vigenere_full_decrypt(a, "komochan", full_vigenere_matrix))
+        decrypted += string.ascii_uppercase[letter_idx]
+    return decrypted
