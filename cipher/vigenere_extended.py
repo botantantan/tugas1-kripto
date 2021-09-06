@@ -1,6 +1,3 @@
-from os import write
-
-
 def padd_key(key, seq_input):
     pad_len = len(seq_input) - len(key)
     j = 0  #index of key
@@ -38,20 +35,3 @@ def vigenere_extended_decrypt(encrypted, key):
         dec_ascii = (ord(encrypted[i]) - ord(padded_key[i])) % 256
         output.append(chr(dec_ascii))
     return ''.join(output)
-
-# filepath = "test_file/img.jpg"
-# inputFile = open(filepath, "rb")
-# data = inputFile.read()
-# data = data.decode("latin-1")
-# inputFile.close()
-# flag = True
-
-# if (flag):
-#     out = vigenere_extended_encrypt(data, "ayam")
-# else:
-#     out = vigenere_extended_decrypt(data, "ayam")
-
-# out = out.encode("latin-1")
-# outputFile = open(filepath, "wb")
-# outputFile.write(out)
-# outputFile.close()
